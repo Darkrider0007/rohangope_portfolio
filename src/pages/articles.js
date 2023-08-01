@@ -152,6 +152,12 @@ const articles = () => {
                     link='https://www.geeksforgeeks.org/how-to-find-minimal-set/'
                     img={article}
                 />
+                <Article
+                    title='Purchase in minimal cost'
+                    date='31 Jul, 2023'
+                    link='https://www.geeksforgeeks.org/purchase-in-minimal-cost/'
+                    img={article}
+                />
                 </ul>
             </Layout>
         </main>
