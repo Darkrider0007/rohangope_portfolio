@@ -167,13 +167,13 @@ const NavBar = () => {
                     className="w-6 mx-3 sm:mx-1">
                         <LeetcodeIcon/>
                     </motion.a>
-                    <motion.a href="https://www.kaggle.com/rohangope"target="_blank"
+                    {/* <motion.a href="https://www.kaggle.com/rohangope"target="_blank"
                     whileHover={{y:-2}}
                     whileTap={{scale:0.9}}
                     className="w-6 ml-3 sm:mx-1 "
                     >
                         <KaggleIcon/>
-                    </motion.a>
+                    </motion.a> */}
                 
                     <button
                     onClick={()=> setMode(mode === "light" ? "dark" : "light")}
