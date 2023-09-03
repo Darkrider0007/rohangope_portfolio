@@ -5,9 +5,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import threads from '../../public/images/projects/threads.png'
 import project1 from '../../public/images/projects/weather.png'
 import project2 from '../../public/images/projects/To-do.jpg'
 import project3 from '../../public/images/projects/jarvis.png'
+import contacts from '../../public/images/projects/contacts.png'
 import { motion } from 'framer-motion'
 import TransitionEffect from '@/components/TransitionEffect'
 
@@ -97,15 +99,15 @@ const projects = () => {
                         <div className="col-span-12">
                         <FeaturedProjects
                             type='Feature Project'
-                            title='Weather Report'
-                            img={project1}
-                            summary='Weather Report is a place, where user can get information about weather of any city across the Globe.'
-                            link='https://darkrider0007.github.io/Weather_report/'
-                            github='https://github.com/Darkrider0007/Weather_report'
+                            title='Threads Clone'
+                            img={threads}
+                            summary='Threads Clone, a web application where users can create their accounts, post their thoughts, read other users threads, and interact with them.'
+                            link='https://threads-clone-gilt.vercel.app/'
+                            github='https://github.com/Darkrider0007/Threads-Clone'
 
                         />
                     </div>
-                        {/* <div className="col-span-6 sm:col-span-12">
+                        <div className="col-span-6 sm:col-span-12">
                             <Project
                                 type='Website'
                                 title='Weather Report'
@@ -115,7 +117,7 @@ const projects = () => {
                                 // summary='Weather Report is a user-friendly global weather application. It allows users to search for any city and provides accurate current conditions, hourly and daily forecasts.
                                 //  Stay prepared with real-time alerts for severe weather events, ensuring your safety. Plan your activities confidently with the help of Weather Report.'
                             />
-                        </div> */}
+                        </div>
                         <div className="col-span-6 sm:col-span-12">
                             <Project
                                 type='Website'
@@ -139,8 +141,15 @@ const projects = () => {
                                 // summary='Users can start and exit by voice commands. Users can access time, Google, YouTube, Wikipedia, stack overflow. Users can even send emails by using voice commands'
                             />
                         </div>
-                        <div className="col-span-6">
-
+                        <div className="col-span-6 sm:col-span-12">
+                            <Project
+                                type='Project'
+                                title='Contact Management App With Charts and Maps'
+                                img={contacts}
+                                link='https://contact-management-app-with-charts-and-maps-4weh-b8spfdjz4.vercel.app/'
+                                github='https://github.com/Darkrider0007/contact_management_app_with_Charts_and_Mapsc:\Users\HP\Pictures\Screenshots\Screenshot 2023-09-03 134641.png'
+                                // summary='Users can start and exit by voice commands. Users can access time, Google, YouTube, Wikipedia, stack overflow. Users can even send emails by using voice commands'
+                            />
                         </div>
                     </div>
                 </Layout>

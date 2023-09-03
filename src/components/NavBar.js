@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link';
 import Logo from './Logo';
 import { useRouter } from 'next/router';
-import { TwitterIcon, GithubIcon, LinkedInIcon, LeetcodeIcon, KaggleIcon, SunIcon, MoonIcon, } from './Icons';
+import { TwitterIcon, GithubIcon, LinkedInIcon, LeetcodeIcon, SunIcon, MoonIcon, } from './Icons';
 import { motion } from 'framer-motion';
 import useThemeSwitcher from './hooks/useThemeSwitcher';
 
@@ -107,7 +107,7 @@ const NavBar = () => {
             whileTap={{scale:0.9}}
             className="w-6 ml-3"
             >
-                <KaggleIcon/>
+
             </motion.a>
         
             <button
@@ -167,13 +167,7 @@ const NavBar = () => {
                     className="w-6 mx-3 sm:mx-1">
                         <LeetcodeIcon/>
                     </motion.a>
-                    {/* <motion.a href="https://www.kaggle.com/rohangope"target="_blank"
-                    whileHover={{y:-2}}
-                    whileTap={{scale:0.9}}
-                    className="w-6 ml-3 sm:mx-1 "
-                    >
-                        <KaggleIcon/>
-                    </motion.a> */}
+                    
                 
                     <button
                     onClick={()=> setMode(mode === "light" ? "dark" : "light")}

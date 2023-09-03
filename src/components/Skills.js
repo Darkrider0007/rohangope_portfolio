@@ -40,10 +40,10 @@ const Skills = () => {
             <Skill name="Python" x="32vw" y="-5vw" />
             <Skill name="NodeJS" x="0vw" y="-22vw" />
             <Skill name="ExpressJS" x="-23vw" y="18vw" />
-            <Skill name="MongoDB" x="-34vw" y="10vw" />
+            <Skill name="MongoDB" x="-37vw" y="-5vw" />
             <Skill name="MySQL" x="27vw" y="-15vw" />
             <Skill name="Tailwind Css" x="20vw" y="18vw" />
-            <Skill name="Unity" x="-36vw" y="-7vw" />
+            {/* <Skill name="Unity" x="-36vw" y="-7vw" /> */}
         </div>
     </>
   )
