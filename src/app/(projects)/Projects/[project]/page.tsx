@@ -1,10 +1,10 @@
 "use client"
 import SmoothScroll from '@/components/smooth-scroll'
-import { useParams } from 'next/navigation'
+// import { useParams } from 'next/navigation'
 import React from 'react'
 
 function page() {
-    const params = useParams<{ project: string }>()
+    // const params = useParams<{ project: string }>()
     return (
         <div
             className='mt-16 flex flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:text-left'
