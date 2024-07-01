@@ -1,32 +1,11 @@
 {
-    "cSpell.words": [
-        "bytea",
-        "CGPA",
-        "Codeforces",
-        "Darkquery",
-        "Dribbble",
-        "Gopalmath",
-        "Hacksquad",
-        "INFOMATICAE",
-        "Instuite",
-        "Inview",
-        "Kaggle",
-        "Leetcode",
-        "Leetocode",
-        "Pinterest",
-        "profic",
-        "psycopg",
-        "removebg",
-        "Teacude",
-        "Vuforia",
-        "WBCHSE"
-    ],
-    "cSpell.customDictionaries": {
-        "custom-dictionary-workspace": {
-            "name": "custom-dictionary-workspace",
-            "path": "${workspaceFolder:My_Portfolio}/.cspell/custom-dictionary-workspace.txt",
-            "addWords": true,
-            "scope": "workspace"
-        }
-    }
+	"cSpell.words": [
+		"Appwrite",
+		"Celebel",
+		"hashnode",
+		"INFOMATICAE",
+		"jgec",
+		"lucide",
+		"Shadcn"
+	]
 }
