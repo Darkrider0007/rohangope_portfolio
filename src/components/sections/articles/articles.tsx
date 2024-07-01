@@ -16,7 +16,7 @@ import ArticlesCard from './articles-card';
 
 function Articles() {
   return (
-    <MotionWrap className="w-full py-24 lg:py-32" id="testimonials">
+    <MotionWrap className="w-full py-24 lg:py-32" id="articles">
       {/* TODO: Redesign for horizontal */}
       <div className="px-4 md:px-6">
         <div className="grid gap-10">
