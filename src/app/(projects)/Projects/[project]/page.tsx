@@ -1,10 +1,9 @@
 "use client"
 import SmoothScroll from '@/components/smooth-scroll'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import React from 'react'
 
 function page() {
-    const router = useRouter()
     const params = useParams<{ project: string }>()
     return (
         <div
