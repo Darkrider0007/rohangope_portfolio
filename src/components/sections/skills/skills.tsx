@@ -24,7 +24,7 @@ function Skills() {
             </Reveal>
           </div>
           <p className="mt-4 hidden text-gray-500 dark:text-gray-400 lg:mt-0 lg:block lg:w-[35%]">
-            Here are some of my skills where I&apos;ve turned knowledge into
+            Here are some of my skills where I've turned knowledge into
             expertise, making things happen.
           </p>
         </div>

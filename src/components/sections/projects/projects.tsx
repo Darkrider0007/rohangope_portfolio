@@ -24,7 +24,7 @@ function Projects() {
             </Reveal>
           </div>
           <p className="mt-4 hidden text-gray-500 dark:text-gray-400 lg:mt-0 lg:block lg:w-[35%]">
-            Here are some of my projects where I&apos;ve turned code into cool,
+            Here are some of my projects where I've turned code into cool,
             functional stuff.
           </p>
         </div>
