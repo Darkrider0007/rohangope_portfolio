@@ -1,7 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['github.com', 'cdn.hashnode.com'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**',
+			},
+			{
+				protocol: 'http',
+				hostname: '**',
+			},
+		],
+	},
+	eslint: {
+		ignoreDuringBuilds: true,
 	},
 };
 

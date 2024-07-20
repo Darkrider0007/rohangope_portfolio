@@ -34,6 +34,10 @@ function ProjectCard({
   liveLink,
 }: ProjectCardProps) {
 
+  function trimString(str: string, length: number) {
+    return str.length > length ? str.substring(0, length) + '...' : str;
+  }
+
   return (
     <Card
       className={cn(
@@ -55,14 +59,16 @@ function ProjectCard({
         <div>
           <h2 className="text-xl font-bold">{name}</h2>
           {
-            description && description.map((desc, index) => (
-              <div key={index} className="flex items-start space-x-1">
-                <Dot className='w-8 h-8' />
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  {desc}
-                </span>
-              </div>
-            ))
+            description && description
+              .slice(0, 2)
+              .map((desc, index) => (
+                <div key={index} className="flex items-start space-x-1">
+                  <Dot className='w-8 h-8' />
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    {trimString(desc, 50)}
+                  </span>
+                </div>
+              ))
           }
           <div className="flex flex-wrap gap-4 mt-4">
             {technologies?.map((tech, index) => (
