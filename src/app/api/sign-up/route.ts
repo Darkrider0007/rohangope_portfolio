@@ -7,7 +7,6 @@ export async function POST(request: Request): Promise<Response> {
 
     try {
         const { username, email, password } = await request.json();
-        console.log(username, email, password);
 
         const existingUserByUsername = await UserModel.findOne({ username });
 
