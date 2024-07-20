@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardContent, CardFooter, Card } from '@/components/ui/card';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,13 +23,17 @@ interface ProjectCardProps extends Project {
 }
 
 function ProjectCard({
+  _id,
   name,
   description,
   thumbnail,
   slug,
   className,
-  technologies
+  technologies,
+  repoLink,
+  liveLink,
 }: ProjectCardProps) {
+
   return (
     <Card
       className={cn(
@@ -63,22 +67,20 @@ function ProjectCard({
           <div className="flex flex-wrap gap-4 mt-4">
             {technologies?.map((tech, index) => (
               <span key={index} >
-                <Badge >{tech}</Badge>
-
+                <Badge>{tech}</Badge>
               </span>
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-end">
+        <div className="flex h-full w-full gap-4 items-end justify-end">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
                   variant="outline"
                   className="z-[2] rounded-full border bg-muted hover:bg-foreground/10"
-                  asChild
                 >
-                  <Link href={'/Projects/' + slug}>
+                  <Link href={`/Projects/${_id}`} className="flex items-center">
                     <InfoIcon />
                   </Link>
                 </Button>
@@ -88,6 +90,46 @@ function ProjectCard({
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
+
+          {repoLink && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="z-[2] rounded-full border bg-muted hover:bg-foreground/10"
+                  >
+                    <Link href={repoLink} target="_blank" className="flex items-center">
+                      <GithubIcon />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>View Repository</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+
+          {liveLink && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="z-[2] rounded-full border bg-muted hover:bg-foreground/10"
+                  >
+                    <Link href={liveLink} target="_blank" className="flex items-center">
+                      <GlobeIcon />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Live Demo</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </div>
       </CardFooter>
     </Card>
