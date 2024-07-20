@@ -75,7 +75,7 @@ function AddProject() {
                     title: 'Project added successfully',
                     description: 'You have successfully added a new project',
                 });
-                // router.push('/');
+                router.push('/');
             } else {
                 toast({
                     title: 'Project not added',
@@ -196,6 +196,13 @@ function AddProject() {
                                     )}
                                 />
                             ))}
+                            <button
+                                type="button"
+                                onClick={() => appendTechnology({ technologies: "" })}
+                                className="mt-4 text-blue-500"
+                            >
+                                Add New Technology
+                            </button>
                             <FormField
                                 control={control}
                                 name="repoLink"
@@ -222,13 +229,7 @@ function AddProject() {
                                     </FormItem>
                                 )}
                             />
-                            <button
-                                type="button"
-                                onClick={() => appendTechnology({ technologies: "" })}
-                                className="mt-4 text-blue-500"
-                            >
-                                Add New Technology
-                            </button>
+
                             <div className="flex justify-center ">
                                 <Button type="submit"
                                     disabled={isbuttonClicked}
