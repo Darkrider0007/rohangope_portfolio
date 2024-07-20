@@ -1,11 +1,13 @@
-import { NextPageContext } from 'next';
+import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 
+// Define the props for the ErrorPage component
 interface ErrorProps {
     statusCode: number;
 }
 
-const ErrorPage = ({ statusCode }: ErrorProps) => {
+// Create the ErrorPage component
+const ErrorPage: NextPage<ErrorProps> = ({ statusCode }) => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-primary-foreground text-secondary-foreground">
             <h1 className="text-5xl font-bold mb-4">Oops!</h1>
@@ -15,15 +17,17 @@ const ErrorPage = ({ statusCode }: ErrorProps) => {
                     : 'An error occurred on client'}
             </p>
             <Link href="/">
-                <p className="text-blue-500 hover:underline">Go back to Home</p>
+                <a className="text-blue-500 hover:underline">Go back to Home</a>
             </Link>
         </div>
     );
 };
 
-ErrorPage.getInitialProps = ({ res, err }: NextPageContext) => {
+// Define getInitialProps for the ErrorPage
+ErrorPage.getInitialProps = async (ctx: NextPageContext) => {
+    const { res, err } = ctx;
     const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-    return { statusCode };
+    return { statusCode: statusCode || 404 }; // Ensure statusCode is always a number
 };
 
 export default ErrorPage;
