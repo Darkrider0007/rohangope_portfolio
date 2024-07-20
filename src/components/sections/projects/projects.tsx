@@ -26,7 +26,6 @@ function Projects() {
         if (response.data.success) {
           setProjects(response.data.data);
         }
-        console.log("load from db");
       } catch (error) {
         console.log('Error fetching data:', error);
         setProjects(projectsLocal as Project[]);

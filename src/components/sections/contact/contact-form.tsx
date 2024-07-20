@@ -23,7 +23,6 @@ export default function ContactForm() {
   const { reset } = form;
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    // console.log(data);
     toast({
       title: "Message Sent",
       description: "I'll get back to you soon!",

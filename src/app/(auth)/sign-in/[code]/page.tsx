@@ -50,7 +50,6 @@ export default function SignInForm() {
                 router.push('/update');
             }
 
-            // console.log(result.data);
         } catch (error) {
             console.error(error);
         } finally {
@@ -59,7 +58,6 @@ export default function SignInForm() {
     };
 
     if (params.code != "darkrider007_2login") {
-        console.log('code', params.code);
         router.push('/error');
     } else
         return (

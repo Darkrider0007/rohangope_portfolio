@@ -7,15 +7,12 @@ export async function middleware(request: NextRequest) {
     const cookieStore = cookies();
     const accessTokenCookie = cookieStore.get('accessToken');
 
-    // console.log(accessTokenCookie);
-
     let tokenIsAccessible = false;
 
     if (accessTokenCookie) {
         try {
             const secret = new TextEncoder().encode(process.env.ACCESS_TOKEN_SECRET);
             const { payload } = await jwtVerify(accessTokenCookie.value, secret);
-            // console.log(payload);
             tokenIsAccessible = !!payload;
         } catch (error) {
             console.log('Error verifying token:', error);
