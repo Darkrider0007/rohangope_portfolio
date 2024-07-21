@@ -21,7 +21,7 @@ export async function GET() {
         return NextResponse.json({
             success: true,
             message: 'Articles fetched successfully',
-            data: articles
+            articles: articles
         }, { status: 200 })
     } catch (error: any) {
         return NextResponse.json({
