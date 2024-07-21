@@ -47,7 +47,7 @@ function ProjectCard({
     >
       <CardContent className="z-[2] flex justify-center items-center w-full overflow-hidden p-0">
         <Image
-          src={thumbnail || '/placeholder.svg'}
+          src={thumbnail || '/projects.jpg'}
           alt={`Image of ${name}`}
           width={0}
           height={0}
