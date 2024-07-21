@@ -3,6 +3,9 @@ import dbConnect from "@/lib/dbConnect";
 import ProjectModel from "@/model/Project.model";
 import { NextResponse } from "next/server";
 
+
+export const revalidate = 0;
+
 export async function GET() {
     await dbConnect();
 
