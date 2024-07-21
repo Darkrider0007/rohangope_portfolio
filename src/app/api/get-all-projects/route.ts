@@ -1,5 +1,7 @@
+"use server";
 import dbConnect from "@/lib/dbConnect";
 import ProjectModel from "@/model/Project.model";
+import { NextResponse } from "next/server";
 
 export async function GET() {
     await dbConnect();
@@ -15,11 +17,11 @@ export async function GET() {
         }
 
 
-        return new Response(JSON.stringify({
+        return NextResponse.json({
             success: true,
-            message: 'Projects found',
+            message: 'Projects fetched successfully',
             data: projects
-        }), { status: 200 });
+        })
     } catch (error: any) {
         return new Response(JSON.stringify({
             success: false,

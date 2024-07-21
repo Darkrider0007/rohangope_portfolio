@@ -66,9 +66,9 @@ function Page({ params }: any) {
                         <div>
                             <h2 className="text-xl font-bold">{project.name}</h2>
                             {project.description && project.description.map((desc, index) => (
-                                <div key={index} className="flex items-start space-x-1">
+                                <div key={index} className="flex items-start justify-start space-x-1">
                                     <Dot className='w-4 h-4' />
-                                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                                    <span className="text-sm text-start text-gray-500 dark:text-gray-400">
                                         {desc}
                                     </span>
                                 </div>
