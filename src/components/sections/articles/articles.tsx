@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Autoplay from "embla-carousel-autoplay"
 import MotionWrap from '@/components/motion-wrap';
 import {
@@ -10,11 +10,31 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel';
 import Reveal from '@/components/reveal';
-
-import { testimonials } from '@/components/sections/articles/config';
+import { ArticlesSchema } from '@/types/articles';
+import { articlesLocal } from '@/components/sections/articles/config';
 import ArticlesCard from './articles-card';
+import axios from 'axios';
+
 
 function Articles() {
+  const [articles, setArticles] = useState<ArticlesSchema[]>([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const res = await axios.get('/api/get-all-articles');
+        if (res.data.success) {
+          setArticles(res.data.articles);
+        } else {
+          setArticles(articlesLocal);
+        }
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchArticles();
+  }, []);
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="articles">
       {/* TODO: Redesign for horizontal */}
@@ -51,18 +71,18 @@ function Articles() {
               className="w-full"
             >
               <CarouselContent>
-                {testimonials.map((testimonial, index) => (
+                {articles.map((article, index) => (
                   <CarouselItem
                     key={index}
                     className="md:basis-1/2 lg:basis-1/3"
                   >
                     <div className="h-full p-1">
                       <ArticlesCard
-                        topic={testimonial.topic}
-                        image={testimonial.image}
-                        desc={testimonial.desc}
-                        alt={testimonial.alt}
-                        link={testimonial.link}
+                        topic={article.topic}
+                        imageURL={article.imageURL}
+                        desc={article.desc}
+                        alt={article.alt}
+                        link={article.link}
                       />
                     </div>
                   </CarouselItem>

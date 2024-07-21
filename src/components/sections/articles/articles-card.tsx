@@ -2,14 +2,14 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { Articles } from '@/types/articles';
+import { ArticlesSchema } from '@/types/articles';
 
-interface ArticlesCardProps extends Articles {
+interface ArticlesCardProps extends ArticlesSchema {
   className?: string;
 }
 
 function ArticlesCard({
-  image,
+  imageURL,
   topic,
   desc,
   alt,
@@ -23,7 +23,7 @@ function ArticlesCard({
       <div className="flex flex-col items-center p-6">
         <div className="relative h-48 w-72 overflow-hidden rounded-lg shadow-lg">
           <Image
-            src={image || '/placeholder.svg'}
+            src={imageURL || '/articles.jpg'}
             alt={alt || 'Placeholder Image'}
             fill
             className="object-cover"

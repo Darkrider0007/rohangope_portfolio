@@ -7,6 +7,17 @@ export async function POST(request: Request) {
     try {
         const { topic, imageURL, alt, desc, link } = await request.json();
 
+        const requiredFields = { topic, imageURL, alt, desc, link };
+
+        for (const [field, value] of Object.entries(requiredFields)) {
+            if (!value) {
+                return new Response(JSON.stringify({
+                    success: false,
+                    message: `${field} is required`,
+                }), { status: 400 });
+            }
+        }
+
         const getUser = await userDetailsFromToken();
 
 
@@ -18,13 +29,6 @@ export async function POST(request: Request) {
                 },
                 { status: 401 }
             );
-        }
-
-        if (!topic || !imageURL || !alt || !desc || !link) {
-            return new Response(JSON.stringify({
-                success: false,
-                message: 'All fields are required',
-            }), { status: 400 });
         }
 
         const alreadyExists = await ArticleModel.findOne({ link });
@@ -49,6 +53,7 @@ export async function POST(request: Request) {
         return new Response(JSON.stringify({
             success: true,
             message: 'Project added successfully',
+            data: newArticle
         }), { status: 201 });
     } catch (error) {
         console.log(error);
