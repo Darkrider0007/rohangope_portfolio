@@ -56,7 +56,7 @@ function AddArticle() {
                     title: 'Article added successfully',
                     description: 'You have successfully added a new article',
                 });
-                // router.push('/');
+                router.push('/');
             } else {
                 toast({
                     title: 'Article not added',

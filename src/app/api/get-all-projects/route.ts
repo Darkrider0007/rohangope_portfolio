@@ -11,10 +11,10 @@ export async function GET() {
         const projects = await ProjectModel.find();
 
         if (!projects) {
-            return new Response(JSON.stringify({
+            return NextResponse.json({
                 success: false,
                 message: 'No projects found'
-            }), { status: 404 });
+            });
         }
 
 
@@ -24,10 +24,13 @@ export async function GET() {
             data: projects
         })
     } catch (error: any) {
-        return new Response(JSON.stringify({
+        return NextResponse.json({
             success: false,
-            message: 'Internal server error',
-            error: error.message
-        }), { status: 500 });
+            message: error.message
+        },
+            {
+                status: 500
+            }
+        );
     }
 }

@@ -1,5 +1,8 @@
 import dbConnect from "@/lib/dbConnect";
 import ProjectModel from "@/model/Project.model";
+import { NextResponse } from "next/server";
+
+export const revalidate = 0;
 
 export async function GET(request: Request) {
     await dbConnect();
@@ -10,30 +13,33 @@ export async function GET(request: Request) {
         const id = searchParams.get('id');
 
         if (!id) {
-            return new Response(JSON.stringify({
+            return NextResponse.json({
                 success: false,
-                message: 'ID is required'
-            }), { status: 400 });
+                message: 'No project id found'
+            }, { status: 400 });
         }
         const project = await ProjectModel.find({ _id: id });
 
         if (!project) {
-            return new Response(JSON.stringify({
+            return NextResponse.json({
                 success: false,
-                message: 'No projects found'
-            }), { status: 404 });
+                message: 'No project found'
+            }, { status: 404 });
         }
 
-        return new Response(JSON.stringify({
+        return NextResponse.json({
             success: true,
-            message: 'Projects found',
-            project: project[0]
-        }), { status: 200 });
-    } catch (error) {
-        return new Response(JSON.stringify({
+            message: 'Project fetched successfully',
+            data: project
+        },
+            {
+                status: 200
+            }
+        );
+    } catch (error: any) {
+        return NextResponse.json({
             success: false,
-            message: 'Internal server error',
-            error: error
-        }), { status: 500 });
+            message: error.message
+        }, { status: 500 });
     }
 }
