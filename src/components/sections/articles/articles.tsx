@@ -58,7 +58,7 @@ function Articles() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center overflow-hidden lg:px-12">
+          <div className="flex items-center justify-center overflow-hidden lg:px-12 ">
             <Carousel
               plugins={[
                 Autoplay({

@@ -20,7 +20,7 @@ import axios from 'axios';
 interface ApiResponse {
     success: boolean;
     message: string;
-    project: Project;
+    data: Project[];
 }
 
 function Page({ params }: any) {
@@ -31,7 +31,7 @@ function Page({ params }: any) {
             try {
                 const response = await axios.get<ApiResponse>(`/api/get-project-by-id?id=${params.project}`);
                 if (response.data.success) {
-                    setProject(response.data.project);
+                    setProject(response.data.data[0]);
                 }
             } catch (error) {
                 console.log('Error fetching data:', error);
@@ -47,7 +47,7 @@ function Page({ params }: any) {
     return (
         <div className='mt-16 flex flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:text-left'>
             <SmoothScroll>
-                <Card
+                {project ? <Card
                     className={cn(
                         'group relative flex flex-col justify-between overflow-hidden rounded-md bg-muted/40'
                     )}
@@ -122,7 +122,9 @@ function Page({ params }: any) {
                             )}
                         </div>
                     </CardFooter>
-                </Card>
+                </Card> : <div className='flex items-center justify-center min-h-screen w-full'>
+                    <p className='text-white'>No project found</p>
+                </div>}
             </SmoothScroll>
         </div>
     );

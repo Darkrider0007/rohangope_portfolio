@@ -18,6 +18,8 @@ function ArticlesCard({
 }: ArticlesCardProps) {
   const validLink = link || '/';
 
+
+
   return (
     <Card className={cn('h-full w-full rounded-xl', 'bg-muted/40', className)}>
       <div className="flex flex-col items-center p-6">
@@ -37,7 +39,7 @@ function ArticlesCard({
             <p className="text-xl font-bold text-gray-600">{topic}</p>
           </div>
           <p className="mt-2 text-base leading-relaxed text-gray-600">
-            {desc}
+            {desc && desc.length > 100 ? `${desc.substring(0, 100)}...` : desc}
           </p>
         </CardContent>
       </a>
